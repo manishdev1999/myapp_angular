@@ -1,0 +1,49 @@
+<div class="title">
+<h2>Add User</h2>
+</div>
+<div class="cox">
+    <div class="alert alert-success" role="alert" *ngIf="(_success)">
+        User Added SuccessFully !
+      </div>
+    <form class="form" (ngSubmit)="onSubmit(f)"  #f="ngForm">
+        <div class="row g-4 mb-3">
+            <div class="col-md-6">
+                <label for="exampleFormControlInput1" class="form-label">First Name</label>
+                <input type="text" class="form-control form-control-sm" name="firstname" placeholder="First Name" ngModel required>
+              </div>
+              <div class="col-md-6">
+                <label for="exampleFormControlInput1" class="form-label">Last Name</label>
+                <input type="text" class="form-control form-control-sm" name="lastname"  placeholder="Last Name" ngModel required>
+              </div>
+            </div>
+            <div class="col-md-12 mb-3">
+              <label for="exampleFormControlInput1" class="form-label">Image URL</label>
+              <input type="text" class="form-control form-control-sm" name="Image"  placeholder="Image URL" ngModel required>
+            </div>
+            <div class="row g-3 mb-3">
+          <div class="col-md-6">
+            <label for="exampleFormControlInput1" class="form-label">Email</label>
+            <input type="email" class="form-control form-control-sm" name="email"  placeholder="name@example.com" ngModel required>
+          </div>
+          <div class="col-md-6">
+            <label for="exampleFormControlInput1" class="form-label">Phone</label>
+            <input type="text" class="form-control form-control-sm" name="phone" placeholder="91 7598308018" ngModel required>
+          </div>
+        </div>
+          <div class="col-md-12 mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+            <textarea class="form-control form-control-sm" id="exampleFormControlTextarea1" name="des" rows="3" ngModel required></textarea>
+          </div>
+          <div class="row g-2 mb-3"  *ngIf = "!(_isloading)">
+              <button type="submit" class="btn btn-primary" [disabled]="!(f.valid)">Submit</button>
+              <button type="reset" class="btn btn-danger">Reset</button>
+          </div>
+          <div class="row g-2 mb-3"  *ngIf = "(_isloading)">
+            <button type="submit" class="btn btn-primary" disabled><i class="fa fa-circle-o-notch fa-spin"></i> Submit </button>
+            <button type="reset" class="btn btn-danger" disabled>Reset</button>
+          </div>
+
+         
+
+    </form>
+</div>

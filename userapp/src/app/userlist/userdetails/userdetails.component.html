@@ -1,0 +1,16 @@
+<div class="row">
+    <div *ngIf="!(_selecteduser.firstname)">
+        <p>No User Selected!</p>
+    </div>
+    <div *ngIf="(_selecteduser.firstname)">
+        <h5 class="mb-3">Name : {{_selecteduser.firstname + ' ' + _selecteduser.lastname}}</h5>
+        <img class="image-profile mb-3" src="{{_selecteduser.Image}}"/>
+        <h6 class="mb-3">Email : {{_selecteduser.email}}</h6>
+        <h6 class="mb-3">Phone : {{_selecteduser.phone}}</h6>
+        <p class="mb-3">Description</p>
+        <p class="mb-3">
+            {{_selecteduser.des}}
+        </p>
+
+    </div>
+</div>
