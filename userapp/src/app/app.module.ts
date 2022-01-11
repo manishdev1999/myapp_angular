@@ -12,11 +12,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { data } from 'src/app/app.services';
 import { FormsModule } from '@angular/forms';
 import { PreloaderComponent } from './shared/preloader/preloader.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { AuthGuard } from './guards/auth.service';
 
 const routes: Routes = [
-  { path: 'useradd', component: UseraddComponent },
-  { path: 'userlist', component: UserlistComponent },
-  { path: 'userdetail', component: UserdetailsComponent },
+  { path: 'useradd', component: UseraddComponent , canActivate : [AuthGuard]},
+  { path: 'userlist', component: UserlistComponent, canActivate : [AuthGuard] },
+  { path: 'userdetail', component: UserdetailsComponent, canActivate : [AuthGuard] },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
   { path: '**', component: ErrorpageComponent}
 ];
 
@@ -30,6 +35,8 @@ const routes: Routes = [
     ErrorpageComponent,
     NavigationComponent,
     PreloaderComponent,
+    LoginComponent,
+    RegisterComponent,
     
   ],
   imports: [
@@ -43,7 +50,8 @@ const routes: Routes = [
     RouterModule
   ],
   providers: [
-    data
+    data,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

@@ -1,0 +1,15 @@
+.cox{
+    padding: 2%;
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    position: relative;
+    margin: auto;
+
+}
+.title{
+    padding: 2%;
+    position: relative;
+    text-align: center;
+    justify-content: center;
+}

@@ -19,6 +19,8 @@ export class UseraddComponent{
 
 
   ngOnInit(): void {
+    const id = localStorage.getItem('token');  
+    console.log(id);  
   }
 
 
